@@ -23,7 +23,8 @@ export const App: React.FC = () => {
           <div className="max-w-6xl mx-auto space-y-4">
             <button
               onClick={() => setActiveToolId(null)}
-              className="flex items-center gap-2 text-xs font-mono text-[#8b949e] hover:text-[#00f0ff] transition-colors p-2 bg-[#161b22] border border-[#212630] rounded-md cursor-pointer"
+              className="flex items-center gap-2 text-xs font-mono hover:scale-103 active:scale-95 transition-all  p-2 bg-[#161b22] border border-[#212630] rounded-md cursor-pointer"
+              style={{ color: selectedTool.accentColor }}
             >
               <ArrowLeft className="w-4 h-4" /> BACK TO DASHBOARD
             </button>
