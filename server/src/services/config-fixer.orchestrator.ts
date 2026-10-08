@@ -60,7 +60,10 @@ export class ConfigFixerOrchestrator {
       configType: params.configType,
       totalIssues: aiAnalysis.findings.length,
       riskScore: aiAnalysis.riskScore,
-      findings: aiAnalysis.findings,
+      findings: aiAnalysis.findings.map(({ lineNumber, ...finding }) => ({
+        ...finding,
+        ...(lineNumber === undefined ? {} : { lineNumber }),
+      })),
       originalConfig: params.configText,
       securedConfig: aiAnalysis.securedConfig,
       diffSummary: aiAnalysis.diffSummary,

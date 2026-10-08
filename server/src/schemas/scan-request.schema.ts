@@ -3,8 +3,12 @@ import { z } from "zod";
 export const scanRequestSchema = z.object({
   code: z
     .string({
-      required_error: "Source code is required for scanning",
-      invalid_type_error: "Source code must be a string",
+      error: (issue) =>
+        issue.input === undefined
+          ? "Source code is required for scanning"
+          : issue.code === "invalid_type"
+            ? "Source code must be a string"
+            : undefined,
     })
     .min(1, "Source code cannot be empty")
     .max(
@@ -13,9 +17,10 @@ export const scanRequestSchema = z.object({
     ),
   language: z
     .enum(["javascript", "typescript"], {
-      required_error: "Language parameter is required",
-      invalid_type_error:
-        'Language must be either "javascript" or "typescript"',
+      error: (issue) =>
+        issue.input === undefined
+          ? "Language parameter is required"
+          : 'Language must be either "javascript" or "typescript"',
     })
     .default("javascript"),
 });

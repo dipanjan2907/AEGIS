@@ -1,1 +1,0 @@
-{"version":3,"file":"scanner.error.d.ts","sourceRoot":"","sources":["scanner.error.ts"],"names":[],"mappings":"AAAA,OAAO,EAAe,KAAK,cAAc,EAAE,MAAM,6BAA6B,CAAC;AAC/E,OAAO,EAAE,QAAQ,EAAE,MAAM,gBAAgB,CAAC;AAE1C,qBAAa,YAAa,SAAQ,QAAQ;IACxC,SAAgB,UAAU,EAAE,cAAc,CAA2B;gBAEzD,OAAO,EAAE,MAAM,EAAE,OAAO,CAAC,EAAE,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC;CAG/D"}
