@@ -226,7 +226,7 @@ export const LeftPanel: React.FC = () => {
 
         {/* 6. Repository Card */}
         <a
-          href="https://github.com/dipanjan2907"
+          href="https://github.com/dipanjan2907/AEGIS"
           target="_blank"
           rel="noopener noreferrer"
           className="
