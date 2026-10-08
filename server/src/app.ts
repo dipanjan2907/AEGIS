@@ -9,19 +9,35 @@ import { errorHandlerMiddleware } from "./middlewares/error-handler.middleware.j
 import { apiRouter } from "./routes/api.router.js";
 import { healthRouter } from "./routes/health.router.js";
 
+const allowedOrigins = new Set(
+  env.CORS_ORIGINS.split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+);
+const vercelProductionOrigin = "https://aegis-eta-steel.vercel.app";
+const vercelPreviewOrigin =
+  /^https:\/\/aegis-[a-z0-9-]+-dipanjan2907s-projects\.vercel\.app$/;
+
 export const createApp = (): Application => {
   const app = express();
 
   // Security & Utility Middlewares
   app.use(helmet());
 
-
-app.use(
-  cors({
-    origin: env.CORS_ORIGINS,
-    credentials: true,
-  }),
-);
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        callback(
+          null,
+          !origin ||
+            allowedOrigins.has(origin) ||
+            origin === vercelProductionOrigin ||
+            vercelPreviewOrigin.test(origin),
+        );
+      },
+      credentials: true,
+    }),
+  );
   app.use(express.json({ limit: "1mb" }));
   app.use(loggingMiddleware);
 

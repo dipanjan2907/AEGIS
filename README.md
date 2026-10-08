@@ -120,7 +120,7 @@ The backend loads and validates all variables below at startup. The example file
 | `NODE_ENV` | Runtime mode | `development` |
 | `PORT` | Backend listen port | `3000` |
 | `LOG_LEVEL` | Pino log level | `info` |
-| `CORS_ORIGIN` | Allowed browser origin | `http://localhost:5173` |
+| `CORS_ORIGINS` | Comma-separated allowed browser origins | `http://localhost:5173` |
 | `GEMMA_API_KEY` | Google GenAI API key used by the server | `your_api_key_here` |
 | `GEMMA_MODEL_NAME` | Model name sent to the Google GenAI SDK | `gemma-2-9b-it` |
 | `RATE_LIMIT_WINDOW_MS` | Rate-limit window in milliseconds | `900000` |
@@ -132,7 +132,7 @@ Example `server/.env` values (replace the API key locally; do not commit secrets
 NODE_ENV=development
 PORT=3000
 LOG_LEVEL=info
-CORS_ORIGIN=http://localhost:5173
+CORS_ORIGINS=http://localhost:5173
 GEMMA_API_KEY=your_api_key_here
 GEMMA_MODEL_NAME=gemma-2-9b-it
 RATE_LIMIT_WINDOW_MS=900000
@@ -140,6 +140,7 @@ RATE_LIMIT_MAX_REQUESTS=50
 ```
 
 The frontend optionally reads `VITE_API_URL`. If unset, it uses `http://localhost:3000/api/v1`.
+For deployments, set the backend's `CORS_ORIGINS` environment variable to the comma-separated frontend origins you use. The production Vercel origin `https://aegis-eta-steel.vercel.app` and matching Vercel preview deployments are also allowed automatically.
 
 ### Running Locally
 
