@@ -3,7 +3,6 @@ import {
   Cpu,
   ShieldCheck,
   Code,
-  BookOpen,
   ChevronRight,
   ExternalLink,
   CheckCircle2,
@@ -180,28 +179,9 @@ export const LeftPanel: React.FC = () => {
       <div className="flex flex-col gap-5 p-6 border-t border-[#252D38] bg-[#080D13]">
         {/* 5. Bottom Navigation */}
         <div className="flex flex-col gap-1">
-          <button
-            className="
-          flex items-center justify-between
-          p-2.5 rounded-md
-          hover:bg-[#171F29]
-          transition-colors
-          group w-full text-left
-        "
-          >
-            <div className="flex items-center gap-3">
-              <BookOpen className="w-4 h-4 text-[#666A86] group-hover:text-[#92B6B1] transition-colors" />
-
-              <span className="text-sm font-medium text-[#788AA3] group-hover:text-[#E8DDB5] hover:cursor-pointer transition-colors">
-                Documentation
-              </span>
-            </div>
-
-            <ChevronRight className="w-4 h-4 text-[#515C6C] group-hover:text-[#92B6B1] transition-colors" />
-          </button>
 
           <a
-            href="https://github.com/dipanjan2907"
+            href="https://github.com/dipanjan2907/AEGIS/blob/main/README.md"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -216,7 +196,7 @@ export const LeftPanel: React.FC = () => {
               <FaGithub className="w-4 h-4 text-[#666A86] group-hover:text-[#92B6B1] transition-colors" />
 
               <span className="text-sm font-medium text-[#788AA3] group-hover:text-[#E8DDB5] transition-colors">
-                GitHub Repository
+                Documentation
               </span>
             </div>
 

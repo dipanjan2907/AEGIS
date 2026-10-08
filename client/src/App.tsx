@@ -4,6 +4,8 @@ import { RightPanel } from "./components/RightPanel";
 import { CodeGuardWorkspace } from "./modules/code-guard/CodeGuardWorkspace";
 import { PromptFirewallWorkspace } from "./modules/prompt-injection-firewall/PromptFirewallWorkspace";
 import { ConfigFixerWorkspace } from "./modules/config-fixer/ConfigFixerWorkspace";
+import { DependencyAutopsyWorkspace } from "./modules/dependency-autopsy/DependencyAutopsyWorkspace";
+import { LogInvestigatorWorkspace } from "./modules/log-investigator/LogInvestigatorWorkspace";
 import { ToolsConfig } from "./data/toolsData";
 import { ArrowLeft } from "lucide-react";
 
@@ -33,6 +35,10 @@ export const App: React.FC = () => {
               <PromptFirewallWorkspace />
             ) : selectedTool.id === "config-fixer" ? (
               <ConfigFixerWorkspace />
+            ) : selectedTool.id === "dependency-autopsy" ? (
+              <DependencyAutopsyWorkspace />
+            ) : selectedTool.id === "log-investigator" ? (
+              <LogInvestigatorWorkspace />
             ) : (
               <div className="p-6 bg-[#131720] border border-[#212630] rounded-lg space-y-4">
                 <div className="flex items-center gap-3">
