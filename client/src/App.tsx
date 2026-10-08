@@ -3,6 +3,7 @@ import { LeftPanel } from "./components/LeftPanel";
 import { RightPanel } from "./components/RightPanel";
 import { CodeGuardWorkspace } from "./modules/code-guard/CodeGuardWorkspace";
 import { PromptFirewallWorkspace } from "./modules/prompt-injection-firewall/PromptFirewallWorkspace";
+import { ConfigFixerWorkspace } from "./modules/config-fixer/ConfigFixerWorkspace";
 import { ToolsConfig } from "./data/toolsData";
 import { ArrowLeft } from "lucide-react";
 
@@ -13,10 +14,8 @@ export const App: React.FC = () => {
 
   return (
     <div className="flex flex-col lg:flex-row h-screen w-screen bg-[#0d1117] text-[#e6edf3] overflow-hidden font-sans">
-      {/* Left Telemetry Panel - Passes selected activeToolId */}
-      <LeftPanel activeModuleId={activeToolId} />
+      <LeftPanel />
 
-      {/* Main Workspace Area */}
       {selectedTool ? (
         <main className="flex-1 h-full overflow-y-auto p-6 lg:p-8 bg-[#0d1117]">
           <div className="max-w-6xl mx-auto space-y-4">
@@ -27,11 +26,13 @@ export const App: React.FC = () => {
               <ArrowLeft className="w-4 h-4" /> BACK TO DASHBOARD
             </button>
 
-            {selectedTool.id === "code-guard" ||
-            selectedTool.id === "code-firewall" ? (
+            {/* Dynamic Module Routing */}
+            {selectedTool.id === "code-guard" || selectedTool.id === "code-firewall" ? (
               <CodeGuardWorkspace />
             ) : selectedTool.id === "prompt-injection-firewall" ? (
               <PromptFirewallWorkspace />
+            ) : selectedTool.id === "config-fixer" ? (
+              <ConfigFixerWorkspace />
             ) : (
               <div className="p-6 bg-[#131720] border border-[#212630] rounded-lg space-y-4">
                 <div className="flex items-center gap-3">
@@ -48,10 +49,7 @@ export const App: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-sm text-[#8b949e]">
-                  {selectedTool.description}
-                </p>
-
+                <p className="text-sm text-[#8b949e]">{selectedTool.description}</p>
                 <div className="p-12 border border-dashed border-[#303644] rounded text-center text-xs font-mono text-[#64748b]">
                   [{selectedTool.title.toUpperCase()} SCANNER WORKSPACE READY]
                 </div>

@@ -1,5 +1,13 @@
 # React + TypeScript + Vite
 
+## API configuration
+
+The frontend reads `VITE_API_URL` for requests to the backend. Production builds
+use `.env.production`, which points to the deployed API. For local development,
+copy `.env.example` to `.env.local` and set the URL to your local backend if
+needed. Environment variables supplied by the deployment platform override the
+file values.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
