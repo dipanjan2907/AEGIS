@@ -3,20 +3,11 @@ import { envSchema, type EnvConfig } from "./env.schema.js";
 
 dotenv.config();
 
-const parseEnv = (): EnvConfig => {
-  const result = envSchema.safeParse(process.env);
+const result = envSchema.safeParse(process.env);
 
-  if (!result.success) {
-    const formattedErrors = result.error.issues
-      .map((issue) => ` - ${issue.path.join(".")}: ${issue.message}`)
-      .join("\n");
+if (!result.success) {
+  console.error(result.error.format());
+  throw new Error("Invalid environment variables");
+}
 
-    throw new Error(
-      `FATAL: Invalid environment variable configuration:\n${formattedErrors}`,
-    );
-  }
-
-  return result.data;
-};
-
-export const env = parseEnv();
+export const env: EnvConfig = result.data;

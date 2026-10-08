@@ -1,8 +1,8 @@
-import { pino } from "pino";
+import { pino, type Level } from "pino";
 import { env } from "../config/env.js";
 
 export const logger = pino({
-  level: env.LOG_LEVEL,
+  level: (env as typeof env & { LOG_LEVEL?: Level }).LOG_LEVEL ?? "info",
   formatters: {
     level: (label) => ({ level: label }),
   },
