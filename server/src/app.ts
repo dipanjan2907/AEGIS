@@ -14,6 +14,7 @@ const allowedOrigins = new Set(
     .map((origin) => origin.trim())
     .filter(Boolean),
 );
+const vercelProductionOrigin = "https://aegis-eta-steel.vercel.app";
 const vercelPreviewOrigin =
   /^https:\/\/aegis-[a-z0-9-]+-dipanjan2907s-projects\.vercel\.app$/;
 
@@ -30,6 +31,7 @@ export const createApp = (): Application => {
           null,
           !origin ||
             allowedOrigins.has(origin) ||
+            origin === vercelProductionOrigin ||
             vercelPreviewOrigin.test(origin),
         );
       },
