@@ -14,14 +14,14 @@ export const createApp = (): Application => {
 
   // Security & Utility Middlewares
   app.use(helmet());
-  const allowedOrigins = process.env.CORS_ORIGINS?.split(",") ?? [];
 
-  app.use(
-    cors({
-      origin: allowedOrigins,
-      credentials: true,
-    }),
-  );
+
+app.use(
+  cors({
+    origin: env.CORS_ORIGINS,
+    credentials: true,
+  }),
+);
   app.use(express.json({ limit: "1mb" }));
   app.use(loggingMiddleware);
 

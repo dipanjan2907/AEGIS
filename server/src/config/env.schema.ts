@@ -10,7 +10,15 @@ export const envSchema = z.object({
     return parsed;
   }),
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]),
-  CORS_ORIGIN: z.string().min(1, "CORS_ORIGIN cannot be empty"),
+  CORS_ORIGINS: z
+    .string()
+    .transform((value) =>
+      value
+        .split(",")
+        .map((origin) => origin.trim())
+        .filter(Boolean),
+    )
+    .pipe(z.array(z.string().min(1)).min(1, "CORS_ORIGINS cannot be empty")),
   GEMMA_API_KEY: z.string().min(1, "GEMMA_API_KEY must be provided"),
   GEMMA_MODEL_NAME: z.string().min(1, "GEMMA_MODEL_NAME must be provided"),
   RATE_LIMIT_WINDOW_MS: z.string().transform((val) => {
