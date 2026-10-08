@@ -1,9 +1,7 @@
 import {
   ShieldAlert,
-  FileSearch,
   Code2,
   Boxes,
-  FileCode2,
   Sliders,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
