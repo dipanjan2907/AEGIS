@@ -4,10 +4,11 @@
   "description": "",
   "main": "dist/server.js",
   "type": "module",
-  "scripts": {
-  "build": "tsc",
-  "start": "node dist/app.js"
-},
+   "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
