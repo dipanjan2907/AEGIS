@@ -1,0 +1,1 @@
+{"version":3,"file":"ai-provider.interface.d.ts","sourceRoot":"","sources":["ai-provider.interface.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,iCAAiC,CAAC;AACvE,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,wCAAwC,CAAC;AAEjF,MAAM,WAAW,WAAW;IAC1B,eAAe,CACb,IAAI,EAAE,MAAM,EACZ,QAAQ,EAAE,eAAe,EAAE,GAC1B,OAAO,CAAC,kBAAkB,CAAC,CAAC;CAChC"}
