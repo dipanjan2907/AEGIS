@@ -61,21 +61,21 @@ export class ToolsConfig {
       cardBorder: "rgba(94, 221, 232, 0.16)",
       glowColor: "rgba(94, 221, 232, 0.10)",
     },
-    {
-      id: "privacy-leak-detective",
-      title: "Privacy Leak Detective",
-      category: "PII & SECRETS",
-      description:
-        "Scan documents, logs, and code for exposed credentials with contextual auto-redaction.",
-      icon: FileSearch,
-      track: ["OWASP Cybersecurity"],
-      accentColor: "#F0784F",
-      badgeBg: "rgba(240, 120, 79, 0.09)",
-      badgeBorder: "rgba(240, 120, 79, 0.24)",
-      cardBg: "rgba(58, 42, 38, 0.42)",
-      cardBorder: "rgba(240, 120, 79, 0.16)",
-      glowColor: "rgba(240, 120, 79, 0.10)",
-    },
+    // {
+    //   id: "privacy-leak-detective",
+    //   title: "Privacy Leak Detective",
+    //   category: "PII & SECRETS",
+    //   description:
+    //     "Scan documents, logs, and code for exposed credentials with contextual auto-redaction.",
+    //   icon: FileSearch,
+    //   track: ["OWASP Cybersecurity"],
+    //   accentColor: "#F0784F",
+    //   badgeBg: "rgba(240, 120, 79, 0.09)",
+    //   badgeBorder: "rgba(240, 120, 79, 0.24)",
+    //   cardBg: "rgba(58, 42, 38, 0.42)",
+    //   cardBorder: "rgba(240, 120, 79, 0.16)",
+    //   glowColor: "rgba(240, 120, 79, 0.10)",
+    // },
 
     {
       id: "code-guard",
@@ -109,21 +109,21 @@ export class ToolsConfig {
       glowColor: "rgba(232, 198, 106, 0.09)",
     },
 
-    {
-      id: "log-investigator",
-      title: "Security Log Investigator",
-      category: "FORENSICS",
-      description:
-        "Parse access logs to construct attack timelines and query raw incidents in plain English.",
-      icon: FileCode2,
-      track: ["OWASP Cybersecurity"],
-      accentColor: "#A99AEF",
-      badgeBg: "rgba(169, 154, 239, 0.09)",
-      badgeBorder: "rgba(169, 154, 239, 0.24)",
-      cardBg: "rgba(48, 43, 62, 0.42)",
-      cardBorder: "rgba(169, 154, 239, 0.16)",
-      glowColor: "rgba(169, 154, 239, 0.10)",
-    },
+    // {
+    //   id: "log-investigator",
+    //   title: "Security Log Investigator",
+    //   category: "FORENSICS",
+    //   description:
+    //     "Parse access logs to construct attack timelines and query raw incidents in plain English.",
+    //   icon: FileCode2,
+    //   track: ["OWASP Cybersecurity"],
+    //   accentColor: "#A99AEF",
+    //   badgeBg: "rgba(169, 154, 239, 0.09)",
+    //   badgeBorder: "rgba(169, 154, 239, 0.24)",
+    //   cardBg: "rgba(48, 43, 62, 0.42)",
+    //   cardBorder: "rgba(169, 154, 239, 0.16)",
+    //   glowColor: "rgba(169, 154, 239, 0.10)",
+    // },
 
     {
       id: "config-fixer",
