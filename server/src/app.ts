@@ -10,45 +10,50 @@ import { apiRouter } from "./routes/api.router.js";
 import { healthRouter } from "./routes/health.router.js";
 
 const allowedOrigins = new Set(
-  env.CORS_ORIGINS.split(",")
+  (env.CORS_ORIGINS ?? "")
+    .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),
 );
-const vercelProductionOrigin = "https://aegis-eta-steel.vercel.app";
-const vercelPreviewOrigin =
-  /^https:\/\/aegis-[a-z0-9-]+-dipanjan2907s-projects\.vercel\.app$/;
 
 export const createApp = (): Application => {
   const app = express();
 
-  // Security & Utility Middlewares
+  // Security
   app.use(helmet());
 
+  // CORS — configurable through environment variables
   app.use(
     cors({
       origin: (origin, callback) => {
-        callback(
-          null,
-          !origin ||
-            allowedOrigins.has(origin) ||
-            origin === vercelProductionOrigin ||
-            vercelPreviewOrigin.test(origin),
-        );
+        // Allow requests without an Origin header
+        if (!origin) {
+          return callback(null, true);
+        }
+
+        if (allowedOrigins.has(origin)) {
+          return callback(null, true);
+        }
+
+        return callback(new Error("Origin not allowed by CORS"));
       },
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
       credentials: true,
     }),
   );
+
   app.use(express.json({ limit: "1mb" }));
   app.use(loggingMiddleware);
 
-  // Rate limiting applied specifically to scan routes
+  // Rate limiting
   app.use("/api", rateLimiterMiddleware);
 
   // Routes
   app.use("/health", healthRouter);
   app.use("/api", apiRouter);
 
-  // Fallback and Error Handlers
+  // Fallback and error handlers
   app.use(notFoundMiddleware);
   app.use(errorHandlerMiddleware);
 
